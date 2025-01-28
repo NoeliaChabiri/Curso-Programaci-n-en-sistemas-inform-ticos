@@ -2,7 +2,7 @@
 
 int main() {
     float pCola, pNaranja, pLima; // Precios de los productos
-    float totalCola, totalLima, totalNaranja; // Total de ventas por producto
+    float totalCola, totalLima, totalNaranja, totalVentas; // Total de ventas por producto
     int colaCant, limaCant, naranjaCant; // Cantidades vendidas de cada producto
     int i; // Variable para iterar sobre los productos
 
@@ -54,15 +54,14 @@ int main() {
         }
     }
 
-    // Mostrar el total de ventas de cada producto
-    printf("\nVentas Totales de Cada Producto:\n €");
-    printf("Coca Cola: %.2f\n €", totalCola);
-    printf("Limón: %.2f\n €", totalLima);
-    printf("Naranja: %.2f\n €", totalNaranja);
-
-    // Total general de ventas
-    float totalVentas = totalCola + totalLima + totalNaranja;
-    printf("\nTotal General de Ventas: %.2f\n €", totalVentas);
+    // Mostrar los datos con el formato exacto de la imagen
+    printf("\n%-10s %-10s %-10s %-10s\n", "Producto", "Ventas", "Precio", "Total");
+    printf("------------------------------------------\n");
+    printf("%-10s %-10d %-10.2f %-10.2f\n", "Cola", colaCant, pCola, totalCola);
+    printf("%-10s %-10d %-10.2f %-10.2f\n", "Naranja", naranjaCant, pNaranja, totalNaranja);
+    printf("%-10s %-10d %-10.2f %-10.2f\n", "Limón", limaCant, pLima, totalLima);
+    totalVentas=totalLima+totalNaranja+totalCola;
+    printf("\n%-31s %-10.2f\n", "TOTAL", totalVentas);
 
     return 0;
 }
