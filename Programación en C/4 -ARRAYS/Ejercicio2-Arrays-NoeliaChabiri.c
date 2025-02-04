@@ -4,7 +4,11 @@
 
 int main()
 {
-    int matriz[3][2],num, i,j;
+
+    int matriz[3][2],minFila,min,maxFila,max, i,j,num;
+    max=matriz[1][1];
+    min=matriz[0][0];
+   
 
     for (i, i = 0; i < 2; i++)
     {
@@ -30,40 +34,35 @@ int main()
         }
         
     }
+    
+    //matriz inicializada.
 
+    max=matriz[1][1];
+    min=matriz[0][0];
+    maxFila=matriz[1][1];
+    minFila=matriz[0][0];
 
-    // revisamos la matriz por fila,
-    for (i i = 0; i < 2; i++)
+    
+    // revisamos la matriz por fila, sin ordenarla, la mostramos. el ejercicio no pide ordenarla pide mostrar los valores en orden por fila.
+    
+    for (i , i = 0; i <= 1; i++)
     {
-        while(j<3){
-            if (matriz[i][1] > matriz[i][2]) {
-                // Intercambiar num1 y num2 si num1 es mayor que num2
-                aux = num1;
-                num1 = num2;
-                num2 = aux;
+    
+        while(j <= 2){
+
+            if( matriz[i][j] < minFila ) {
+
+
+            }
+            else{
+
             }
 
-            if (matriz[i][1] > matriz[i][3]) {
-                // Intercambiar num1 y num3 si num1 es mayor que num3
-                aux = num1;
-                num1 = num3;
-                num3 = aux;
-            }
-
-             if (matriz[i][2] > matriz[i][j]) {
-                // Intercambiar num2 y num3 si num2 es mayor que num3
-                aux = num2;
-                num2 = num3;
-                num3 = aux;
-            }
+            j++;
 
         }
+
     }
-    
-
-
-
-    
 
 
     
