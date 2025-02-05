@@ -1,6 +1,3 @@
-/// Utilizando punteros y un vector de tipo entero que tenga un nombre year , escribir un programa en C que genere
-/// el siguiente 
-
 #include <stdio.h>
 
 int main() {

@@ -1,22 +1,22 @@
 #include <stdio.h>
-#include <string.h>
 
 int main()
 {
+    char*cad=("Altoorlaar a itroxdeous");
+    char *pt;
+    int x;
+    pt=cad+1;
     
-char *cadena="hola mundo";
-char *p;
-int i;
-p=cadena+1; // esto quiere decir que p apuntara a la direccion de memoria de la primera o de hola mundo.
 
-for (i = 0; i < 5; i++)
-{
-    
-    printf("%c", *p);
-    p+=2; // es igual que decir p=p+2.
-    
-}
+    for (x=0; x<12; x++) {
 
+        printf("%c",*pt);
+        pt+=2;
+
+    }
+
+    printf("\n");
+    
 
     return 0;
 }
