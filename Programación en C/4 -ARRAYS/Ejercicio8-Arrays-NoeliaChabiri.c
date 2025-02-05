@@ -1,12 +1,13 @@
-// programa que debe leer pos usuario un número y hacer una matriz con su potencias 1,2,3 y a la 4, desde el numero 1 al numero del usuario.
+// programa que debe leer pos usuario un número y hacer una matriz con su potencias 1,2,3 y a la 4, desde el numero 1 al numero del usuario.ii
 // ejemplo el usuario elije el 2 , entonces 1^2,1^3,1^4 y 2^2,2^3,2^4. 
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main()
 {
-    int *potencias;
+    int **potencias;//puntero de punteros , osea una matriz.
     int num,i,j;
     
 
@@ -22,10 +23,14 @@ int main()
     } while (num<0);
 
 
-    // Asignamos memoria para la matriz , dependiendo el numero y las potencias.
-    potencias = (int *)malloc(num * 4 * sizeof(int)); //porque hay que multiplicar todos los numeros hasta num^4.
+    // DIMENSIONAMIENTO DINAMICO - Asignamos memoria para la matriz , dependiendo el numero y las potencias.
+    potencias = (int**)malloc(num*sizeof(int*)); //int** es por que es una matriz, se asigna diension dependiendo lo que el usuario indique.
 
-
+    for ( i = 0; i < num; i++)
+    {
+        potencias[i]=(int*)malloc(4*sizeof(int));
+    }
+    
     // Verificamos si la memoria fue redimensionada correctamente.
     if (potencias == NULL) {
         printf("\nError: No se pudo redimensionar la memoria\n");
@@ -36,23 +41,25 @@ int main()
     // Inicializamos el array y le asignamos los nuevos elemento.
     // Llenar la matriz con las potencias
     for (i = 0; i < num; i++) {
-        for (j = 1; j <= 4; j++) {
-            *(potencias + i * 4 + (j - 1)) = (i + 1) * j;  // Guardar las potencias
+        for (j = 0; j < 4; j++) {
+            potencias[i][j]=pow(i+1,j+1);
         }
     }
+
+
+    ///mostramos la matriz
+    for (i = 0; i < num; i++) {
+        for (j = 0; j < 4; j++) {
+            printf("  %d  |", potencias[i][j]);
+        }
+        printf("\n");
+    }
+
+
 
     printf("\n");
 
-    for ( j = 0; j < num; j++)
-    {
-        for (i = 0; i < 4; i++)
-        {
-            ///
-            printf("  %d | ", *(potencias + 4 + i) ); //En la matriz se mueve 4 veces i por eso el for esta hecho en base a i. i veces.
-        }
-        printf("\n");
-        
-    }
+   
 
     // Liberar la memoria asignada              
     free(potencias);
