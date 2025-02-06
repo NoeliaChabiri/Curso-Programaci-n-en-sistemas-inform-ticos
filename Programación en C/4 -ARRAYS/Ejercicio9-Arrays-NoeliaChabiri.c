@@ -9,7 +9,7 @@
 int main()
 {
     char paso;
-    float ventas[18][10];
+    float ventas[18][10]={0}; //defino e inicio variable.
     int empleado,menu,i,j;
     float ingreso,total;
     char *nombres[18] = {"Juan Carlos Pérez García","María Fernanda López Rodríguez","Pedro Antonio Sánchez Díaz","Laura Beatriz Martínez Gómez",
@@ -41,8 +41,8 @@ int main()
 
                 for (j = 0; j < 10; j++)
                 {
-                    printf("¿Cuanto vendio de %s?: ", productos[i]);
-                    scanf("%lf",&ingreso);
+                    printf("¿Cuanto vendio de %s?: ", productos[j]);
+                    scanf("%f",&ingreso);
                     ventas[i][j]=ingreso;
                         
                 }
@@ -59,7 +59,7 @@ int main()
                 printf("\n%i- %s", i, nombres[i]);
             }
             printf("Ingrese el número de empleado: \n");
-            scanf("%d",&ingreso);
+            scanf("%d",&empleado);
             j=(ingreso-1);
 
             for (i = 0; i < 10; i++)
@@ -74,9 +74,9 @@ int main()
 
         case 3:
 
-            for (i = 0; i < 10; i++)
+            for (i = 0; i < 18; i++)
             {
-                for ( j = 0; i < 18; i++)
+                for ( j = 0; i < 10; i++)
                 {
                     total=total+ventas[i][j];
                 }
