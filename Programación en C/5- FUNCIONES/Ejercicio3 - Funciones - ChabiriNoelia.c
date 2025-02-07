@@ -11,43 +11,39 @@
 
 #include <stdio.h>
 
+// Función para intercambiar valores usando punteros , se necesitan punteros para poder devolver el valor
+void intercambio(int *x, int *y) {
+    int aux = *x;
+    *x = *y;
+    *y = aux;
+}
 
-
-
-
-
-
-
-
-
-int main(int argc, char const *argv[])
-{
-    int a, b,i;
-
-    printf("Ingrese dos enteros");
-
-    do
-    {
-
-        printf("Ingrese el 1º entero");
-        scanf("%d",&a);
-        printf("Ingrese el 2º entero");
-        scanf("%d",&b);
-
-        if ((a != (int)a) || (b != (int)b)){
-            
-            i=0;
-            printf(" Ingreso un mal el número ");
-        }
-        else{
-            i=1;
-        }
-        
-
-    } while (i==0);
+int main() {
+    int a, b;
     
-    
+    // Pedir entrada al usuario
+    printf("Ingrese dos enteros:\n");
 
-    
+    printf("Ingrese el 1º entero: ");
+    while (scanf("%d", &a) != 1) {
+        printf("Entrada inválida. Ingrese un número entero: ");
+        while (getchar() != '\n'); // Limpiar el buffer de entrada
+    }
+
+    printf("Ingrese el 2º entero: ");
+    while (scanf("%d", &b) != 1) {
+        printf("Entrada inválida. Ingrese un número entero: ");
+        while (getchar() != '\n'); // Limpiar el buffer de entrada
+    }
+
+    // Mostrar antes del intercambio
+    printf("\nAntes del intercambio: a = %d, b = %d\n", a, b);
+
+    // Llamada a la función con punteros
+    intercambio(&a, &b);
+
+    // Mostrar después del intercambio
+    printf("Después del intercambio: a = %d, b = %d\n", a, b);
+
     return 0;
 }
